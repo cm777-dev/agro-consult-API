@@ -81,8 +81,14 @@ async def root():
     Example:
         ```python
         import requests
+        import os
         
-        response = requests.get("https://agro-consult-api.herokuapp.com/")
+        headers = {
+            'X-RapidAPI-Key': os.getenv('RAPIDAPI_KEY'),
+            'X-RapidAPI-Host': 'agro-consult-api.p.rapidapi.com'
+        }
+        
+        response = requests.get("https://agro-consult-api.p.rapidapi.com/", headers=headers)
         print(response.json())
         ```
     """
@@ -91,5 +97,6 @@ async def root():
         "version": settings.VERSION,
         "docs_url": "/docs",
         "redoc_url": "/redoc",
-        "status": "operational"
+        "status": "operational",
+        "github_url": "https://github.com/cm777-dev/agro-consult-API"
     }
